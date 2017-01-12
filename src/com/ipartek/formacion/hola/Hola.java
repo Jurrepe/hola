@@ -54,6 +54,12 @@ public class Hola {
 		libroMySql.escribir(0);
 		System.out.println(libroMySql.describete());
 
+		Libro libroAnillos = new Libro();
+		libroAnillos.numeroPaginas = 5000;
+		libroAnillos.nombre = "El señor de los anillos";
+		libroAnillos.autor = "John Ronald Reuel Tolkien";
+		System.out.println(libroAnillos.describete());
+
 	}
 
 }
