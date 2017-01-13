@@ -1,6 +1,6 @@
 package com.ipartek.formacion.hola;
 
-import com.ipartek.formacion.hola.pojo.Libro;
+import com.ipartek.formacion.hola.pojo.LibroEncapsulado;
 
 /**
  * Clase para la creacion de un hola mundo
@@ -35,7 +35,7 @@ public class Hola {
 		System.out.println("Hola mundo");
 
 		// Instanciar un objeto de la clase Libro
-		Libro libroJava = new Libro();
+		LibroEncapsulado libroJava = new LibroEncapsulado();
 		libroJava.numeroPaginas = 320;
 		libroJava.nombre = "Java 7";
 		libroJava.autor = "Roberto Montero";
@@ -47,14 +47,14 @@ public class Hola {
 		 */
 		libroJava.escribir(12);
 		System.out.println(libroJava.describete());
-		Libro libroMySql = new Libro();
+		LibroEncapsulado libroMySql = new LibroEncapsulado();
 		libroMySql.numeroPaginas = 725;
 		libroMySql.nombre = "PHP y MySQL";
 		libroMySql.autor = "Julio Verne";
 		libroMySql.escribir(0);
 		System.out.println(libroMySql.describete());
 
-		Libro libroAnillos = new Libro();
+		LibroEncapsulado libroAnillos = new LibroEncapsulado();
 		libroAnillos.numeroPaginas = 5000;
 		libroAnillos.nombre = "El señor de los anillos";
 		libroAnillos.autor = "John Ronald Reuel Tolkien";
