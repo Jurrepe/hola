@@ -1,11 +1,12 @@
 package com.ipartek.formacion.hola.pojo;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Receta {
 
 	private String titulo;
-	private Ingrediente[] ingredientes;
+	// private Ingrediente[] ingredientes;
+	private ArrayList<Ingrediente> ingredientes;
 	private int tiempo;
 	private String dificultad;
 	private int comensales;
@@ -16,7 +17,7 @@ public class Receta {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Receta(String titulo, Ingrediente[] ingredientes, int tiempo, String dificultad, int comensales,
+	public Receta(String titulo, ArrayList<Ingrediente> ingredientes, int tiempo, String dificultad, int comensales,
 			String descripcion) {
 		super();
 		this.titulo = titulo;
@@ -35,11 +36,11 @@ public class Receta {
 		this.titulo = titulo;
 	}
 
-	public Ingrediente[] getIngredientes() {
+	public ArrayList<Ingrediente> getIngredientes() {
 		return ingredientes;
 	}
 
-	public void setIngredientes(Ingrediente[] ingredientes) {
+	public void setIngredientes(ArrayList<Ingrediente> ingredientes) {
 		this.ingredientes = ingredientes;
 	}
 
@@ -75,6 +76,22 @@ public class Receta {
 		this.descripcion = descripcion;
 	}
 
+	public void addIngrediente(Ingrediente ingrediente) {
+
+	}
+
+	/**
+	 * Eliminar el primer ingrediente que encuentre con el mismo
+	 * <code>nombre</code> CaseInsesitive
+	 * 
+	 * @param ingrediente
+	 *            a eliminar
+	 * @return true si elimina ingrediente false en caso contrario
+	 */
+	public boolean removeIngrediente(Ingrediente ingrediente) {
+		return false;
+	}
+
 	/**
 	 * Nos indica si es libre de ingrediente con gluten
 	 * 
@@ -85,8 +102,8 @@ public class Receta {
 	public boolean isGlutenFree() {
 		boolean resul = true;
 		if (this.ingredientes != null)
-			for (int i = 0; i < this.ingredientes.length; i++) {
-				if (ingredientes[i].isGluten()) {
+			for (int i = 0; i < this.ingredientes.size(); i++) {
+				if (ingredientes.get(i).isGluten()) {
 					resul = false;
 					break;
 				}
@@ -96,7 +113,8 @@ public class Receta {
 
 	@Override
 	public String toString() {
-		return "Receta [titulo=" + titulo + ", ingredientes=" + Arrays.toString(ingredientes) + ", tiempo=" + tiempo
-				+ ", dificultad=" + dificultad + ", comensales=" + comensales + ", descripcion=" + descripcion + "]";
+		return "Receta [titulo=" + titulo + ", ingredientes=" + ingredientes + ", tiempo=" + tiempo + ", dificultad="
+				+ dificultad + ", comensales=" + comensales + ", descripcion=" + descripcion + "]";
 	}
+
 }
