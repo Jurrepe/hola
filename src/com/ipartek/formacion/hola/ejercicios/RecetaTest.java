@@ -39,7 +39,7 @@ public class RecetaTest {
 
 		ingredientes.add(new Ingrediente(4f, "patatas", true));
 		ingredientes.add(new Ingrediente(500f, "bonito limpio", true));
-		ingredientes.add(new Ingrediente(2f, "cebolletas", true));
+		ingredientes.add(new Ingrediente(2f, "cebolletas", false));
 		ingredientes.add(new Ingrediente(2f, "pimientos verdes", true));
 		ingredientes.add(new Ingrediente(0.5f, "pimiento rojo", true));
 		ingredientes.add(new Ingrediente(1f, "pan de sopa", true));

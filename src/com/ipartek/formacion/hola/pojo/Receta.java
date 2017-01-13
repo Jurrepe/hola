@@ -77,7 +77,7 @@ public class Receta {
 	}
 
 	public void addIngrediente(Ingrediente ingrediente) {
-
+		this.ingredientes.add(ingrediente);
 	}
 
 	/**
@@ -89,7 +89,10 @@ public class Receta {
 	 * @return true si elimina ingrediente false en caso contrario
 	 */
 	public boolean removeIngrediente(Ingrediente ingrediente) {
-		return false;
+		boolean resul = this.ingredientes.contains(ingrediente);
+		if (this.ingredientes.contains(ingrediente))
+			this.ingredientes.remove(ingrediente);
+		return resul;
 	}
 
 	/**
