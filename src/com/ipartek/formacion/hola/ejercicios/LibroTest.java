@@ -1,8 +1,10 @@
-package com.ipartek.formacion.hola.pojo;
+package com.ipartek.formacion.hola.ejercicios;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.ipartek.formacion.hola.pojo.Libro;
 
 public class LibroTest {
 
