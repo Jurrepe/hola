@@ -75,13 +75,23 @@ public class Receta {
 		this.descripcion = descripcion;
 	}
 
+	/**
+	 * Nos indica si es libre de ingrediente con gluten
+	 * 
+	 * @return true si todos no contienen gluten <br>
+	 *         false si alguno(o todos) tiene gluten <br>
+	 *         true si no existen ingredientes
+	 */
 	public boolean isGlutenFree() {
-		for (int i = 0; i < this.ingredientes.length; i++) {
-			if (ingredientes[i].isGluten()) {
-				return false;
+		boolean resul = true;
+		if (this.ingredientes != null)
+			for (int i = 0; i < this.ingredientes.length; i++) {
+				if (ingredientes[i].isGluten()) {
+					resul = false;
+					break;
+				}
 			}
-		}
-		return true;
+		return resul;
 	}
 
 	@Override

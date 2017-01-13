@@ -1,5 +1,6 @@
 package com.ipartek.formacion.hola.ejercicios;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -19,21 +20,26 @@ public class RecetaTest {
 		aIngredientes[4] = new Ingrediente(0.5f, "pimiento rojo", false);
 		Receta prueba = new Receta();
 		prueba.setIngredientes(aIngredientes);
-		assertTrue(prueba.isGlutenFree());
+		assertTrue("caso 1 sin gluten", prueba.isGlutenFree());
 
 		aIngredientes[0] = new Ingrediente(4f, "patatas", false);
 		aIngredientes[1] = new Ingrediente(500f, "bonito limpio", true);
 		aIngredientes[2] = new Ingrediente(2f, "cebolletas", false);
 		aIngredientes[3] = new Ingrediente(2f, "pimientos verdes", true);
 		aIngredientes[4] = new Ingrediente(0.5f, "pimiento rojo", false);
-		assertTrue(prueba.isGlutenFree());
+		prueba.setIngredientes(aIngredientes);
+		assertFalse("caso 2 algunos con gluten", prueba.isGlutenFree());
 
-		aIngredientes[0] = new Ingrediente(4f, "patatas", false);
-		aIngredientes[1] = new Ingrediente(500f, "bonito limpio", false);
-		aIngredientes[2] = null;
+		aIngredientes[0] = new Ingrediente(4f, "patatas", true);
+		aIngredientes[1] = new Ingrediente(500f, "bonito limpio", true);
+		aIngredientes[2] = new Ingrediente(2f, "cebolletas", true);
 		aIngredientes[3] = new Ingrediente(2f, "pimientos verdes", true);
-		aIngredientes[4] = new Ingrediente(0.5f, "pimiento rojo", false);
-		assertTrue(prueba.isGlutenFree());
+		aIngredientes[4] = new Ingrediente(0.5f, "pimiento rojo", true);
+		prueba.setIngredientes(aIngredientes);
+		assertFalse("caso 3 todos con gluten", prueba.isGlutenFree());
+
+		prueba.setIngredientes(null);
+		assertTrue("caso 4 uno es null", prueba.isGlutenFree());
 
 	}
 

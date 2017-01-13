@@ -1,4 +1,6 @@
-package com.ipartek.formacion.hola.pojo;
+package com.ipartek.formacion.hola.ejercicios;
+
+import com.ipartek.formacion.hola.pojo.Libro;
 
 public class TopVentasLibro {
 
