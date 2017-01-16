@@ -6,6 +6,7 @@ public class Marmitako {
 
 	public static void main(String[] args) {
 		Receta marmitako = new Receta();
+		// ya no usamos array
 		// Ingrediente[] aIngredientes = new Ingrediente[16];
 		ArrayList<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
 		marmitako.setTitulo("Marmitako de Karlos arguiñano");

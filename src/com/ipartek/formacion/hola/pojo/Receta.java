@@ -17,11 +17,21 @@ public class Receta {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Receta(String titulo, ArrayList<Ingrediente> ingredientes) {
+		super();
+		this.titulo = titulo;
+		setIngredientes(ingredientes);
+		this.tiempo = 0;
+		this.dificultad = "Facil";
+		this.comensales = 0;
+		this.descripcion = "Wololo wololo";
+	}
+
 	public Receta(String titulo, ArrayList<Ingrediente> ingredientes, int tiempo, String dificultad, int comensales,
 			String descripcion) {
 		super();
 		this.titulo = titulo;
-		this.ingredientes = ingredientes;
+		setIngredientes(ingredientes);
 		this.tiempo = tiempo;
 		this.dificultad = dificultad;
 		this.comensales = comensales;
@@ -41,7 +51,7 @@ public class Receta {
 	}
 
 	public void setIngredientes(ArrayList<Ingrediente> ingredientes) {
-		this.ingredientes = ingredientes;
+		this.ingredientes = (ingredientes == null) ? new ArrayList<Ingrediente>() : ingredientes;
 	}
 
 	public int getTiempo() {
@@ -76,8 +86,17 @@ public class Receta {
 		this.descripcion = descripcion;
 	}
 
+	/**
+	 * TODO cuando sea null lanzar Exception personalizada <br>
+	 * Añadimos un nuevo {@code Ingrediente} a la receta
+	 * 
+	 * @param ingrediente
+	 *            si es null no hace nada
+	 */
 	public void addIngrediente(Ingrediente ingrediente) {
-		this.ingredientes.add(ingrediente);
+		if (ingrediente != null) {
+			this.ingredientes.add(ingrediente);
+		}
 	}
 
 	/**
@@ -89,9 +108,45 @@ public class Receta {
 	 * @return true si elimina ingrediente false en caso contrario
 	 */
 	public boolean removeIngrediente(Ingrediente ingrediente) {
-		boolean resul = this.ingredientes.contains(ingrediente);
-		if (this.ingredientes.contains(ingrediente))
-			this.ingredientes.remove(ingrediente);
+		// return this.ingredientes.remove(ingrediente); Funciona por ahora
+		boolean resul = false;
+		if (ingrediente != null) {
+			final String NOMBRE_INGREDIENTE_ELIMINAR = ingrediente.getNombre();
+			Ingrediente iterateIngredient = null;
+			for (int i = 0; i < this.ingredientes.size(); i++) {
+				iterateIngredient = this.ingredientes.get(i);
+				if (NOMBRE_INGREDIENTE_ELIMINAR.equalsIgnoreCase(iterateIngredient.getNombre())) {
+					this.ingredientes.remove(i);
+					resul = true;
+					break;
+				}
+
+			} // end for
+		} // end if
+		return resul;
+	}
+
+	/**
+	 * Comprueba si contiene el {@code Ingrediente} pasado como parametro
+	 * 
+	 * @param ingrediente
+	 *            {@code Ingrediente} a buscar
+	 * @return true si contiene ingrediente<br>
+	 *         false en caso contrario
+	 */
+	public boolean contiene(Ingrediente ingrediente) {
+		boolean resul = false;
+		if (ingrediente != null) {
+			final String NOMBRE_BUSCAR = ingrediente.getNombre();
+			Ingrediente iterator = null;
+			for (int i = 0; i < this.ingredientes.size(); i++) {
+				iterator = this.ingredientes.get(i);
+				if (NOMBRE_BUSCAR.equalsIgnoreCase(iterator.getNombre())) {
+					resul = true;
+					break;
+				}
+			}
+		}
 		return resul;
 	}
 
