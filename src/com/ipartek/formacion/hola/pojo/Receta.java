@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class Receta {
 
+	public String IMG_DEFAULT = "http://es.seaicons.com/wp-content/uploads/2016/03/Recipe-Book-icon.png";
+
 	private String titulo;
-	// private Ingrediente[] ingredientes;
+	private String imagen;
 	private ArrayList<Ingrediente> ingredientes;
 	private int tiempo;
 	private String dificultad;
@@ -17,9 +19,21 @@ public class Receta {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Receta(String titulo) {
+		super();
+		this.imagen = IMG_DEFAULT;
+		this.titulo = titulo;
+		setIngredientes(null);
+		this.tiempo = 0;
+		this.dificultad = "Facil";
+		this.comensales = 0;
+		this.descripcion = "Wololo wololo";
+	}
+
 	public Receta(String titulo, ArrayList<Ingrediente> ingredientes) {
 		super();
 		this.titulo = titulo;
+		this.imagen = IMG_DEFAULT;
 		setIngredientes(ingredientes);
 		this.tiempo = 0;
 		this.dificultad = "Facil";
@@ -33,6 +47,7 @@ public class Receta {
 		this.titulo = titulo;
 		setIngredientes(ingredientes);
 		this.tiempo = tiempo;
+		this.imagen = IMG_DEFAULT;
 		this.dificultad = dificultad;
 		this.comensales = comensales;
 		this.descripcion = descripcion;
@@ -84,6 +99,14 @@ public class Receta {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	/**
@@ -171,8 +194,9 @@ public class Receta {
 
 	@Override
 	public String toString() {
-		return "Receta [titulo=" + titulo + ", ingredientes=" + ingredientes + ", tiempo=" + tiempo + ", dificultad="
-				+ dificultad + ", comensales=" + comensales + ", descripcion=" + descripcion + "]";
+		return "Receta [titulo=" + titulo + ", imagen=" + imagen + ", ingredientes=" + ingredientes + ", tiempo="
+				+ tiempo + ", dificultad=" + dificultad + ", comensales=" + comensales + ", descripcion=" + descripcion
+				+ "]";
 	}
 
 }
