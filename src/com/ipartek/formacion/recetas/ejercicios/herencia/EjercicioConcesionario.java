@@ -1,5 +1,7 @@
 package com.ipartek.formacion.recetas.ejercicios.herencia;
 
+import java.util.ArrayList;
+
 /**
  * Listar todos los vehiculos del concesionario
  * 
@@ -37,13 +39,29 @@ public class EjercicioConcesionario {
 		vd2.setPlazas(5);
 		vd2.setPotencia(120);
 		vd2.setCapacidadCombustible(98);
+
+		ArrayList<Vehiculo> stock = new ArrayList<Vehiculo>();
+		stock.add(v1);
+		stock.add(v2);
+		stock.add(v3);
+		stock.add(ve1);
+		stock.add(vd1);
+		stock.add(vd2);
+
 		// mostrar por pantalla
-		System.out.println(v1.toString());
-		System.out.println(v2.toString());
-		System.out.println(v3.toString());
-		System.out.println(ve1.toString());
-		System.out.println(vd1.toString());
-		System.out.println(vd2.toString());
+		for (Vehiculo vehiculo : stock) {
+			System.out.println();
+			System.out.println(vehiculo.getModelo());
+			System.out.println("Plazas: " + vehiculo.getPlazas());
+			System.out.println("Potencia: " + vehiculo.getPotencia());
+
+			if (vehiculo instanceof VehiculoElectrico) {
+				System.out.println("Capacidad bateria: " + ((VehiculoElectrico) vehiculo).getCapacidadBaterias());
+			} else if (vehiculo instanceof VehiculoDiesel) {
+				System.out.println("Combustible: " + ((VehiculoDiesel) vehiculo).getCapacidadCombustible());
+			}
+			System.out.println("---------------------------------");
+		}
 
 	}
 
