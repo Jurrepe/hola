@@ -22,6 +22,30 @@ public class Utilidades {
 	}
 
 	static public int[] bubbleSort(int[] aDesordenado) {
+		int cont;
+		do {
+			cont = 0;
+			for (int i = 0; i < aDesordenado.length - 1; i++) {
+				if (aDesordenado[i] > aDesordenado[i + 1]) {
+					cont = aDesordenado[i + 1];
+					aDesordenado[i + 1] = aDesordenado[i];
+					aDesordenado[i] = cont;
+					cont++;
+				}
+			}
+		} while (cont > 0);
+
+		/*
+		 * boolean flag = true;
+		 * 
+		 * while(flag){ flag = false; for (int i = 0; i < aDesordenado.length -
+		 * 1; i++) { if (aDesordenado[i] > aDesordenado[i + 1]) { cont =
+		 * aDesordenado[i + 1]; aDesordenado[i + 1] = aDesordenado[i];
+		 * aDesordenado[i] = cont; flag = true; } }
+		 * 
+		 * 
+		 */
+
 		return aDesordenado;
 	}
 

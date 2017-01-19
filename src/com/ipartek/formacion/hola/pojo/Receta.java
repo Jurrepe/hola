@@ -2,9 +2,12 @@ package com.ipartek.formacion.hola.pojo;
 
 import java.util.ArrayList;
 
-public class Receta {
+public class Receta implements Comparable<Receta> {
 
 	public String IMG_DEFAULT = "http://es.seaicons.com/wp-content/uploads/2016/03/Recipe-Book-icon.png";
+	public static final String DIFICULTAD_FACIL = "FACIL";
+	public static final String DIFICULTAD_MODERADA = "MODERADA";
+	public static final String DIFICULTAD_DIFICIL = "DIFICIL";
 
 	private String titulo;
 	private String imagen;
@@ -13,6 +16,7 @@ public class Receta {
 	private String dificultad;
 	private int comensales;
 	private String descripcion;
+	
 
 	public Receta() {
 		super();
@@ -197,6 +201,20 @@ public class Receta {
 		return "Receta [titulo=" + titulo + ", imagen=" + imagen + ", ingredientes=" + ingredientes + ", tiempo="
 				+ tiempo + ", dificultad=" + dificultad + ", comensales=" + comensales + ", descripcion=" + descripcion
 				+ "]";
+	}
+
+
+//	@Override
+//	public int compare(Receta o1, Receta o2) {
+//		
+//		return o1.getTitulo().compareTo(o2.getTitulo());
+//	}
+
+	//Compara el objeto actual con el que se le pasa por el parametro y lo compara por el titulo
+	@Override
+	public int compareTo(Receta o) {
+		//pasamos a toLowerCase, para ignorar mayusculas y minusculas
+		return this.getTitulo().toLowerCase().compareTo(o.getTitulo().toLowerCase());
 	}
 
 }
